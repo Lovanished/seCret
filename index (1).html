@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>◆ ??? ◆</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css" />
+</head>
+<body>
+
+<div class="grain"></div>
+<div class="vignette"></div>
+
+<header class="site-head">
+  <p class="eyebrow">봉인된 기록 · 열람 시도 <span id="visitCount">1</span>회차</p>
+  <h1 class="title">◆ &nbsp;<span class="title-blank">＿＿＿＿＿</span>&nbsp; ◆</h1>
+  <p class="subtitle">모든 것에는 이름이 있다. 이 게임 또한 그렇다. 다만, 아직은 아니다.</p>
+</header>
+
+<main>
+
+  <section class="altar" aria-label="옥수수 제단">
+    <div class="altar-ring">
+      <div class="altar-ring-inner">
+        <span class="corn-glyph">🌽</span>
+        <div class="corn-count" id="cornCount">0</div>
+        <div class="corn-label">알갱이</div>
+      </div>
+    </div>
+    <p class="altar-caption">시간은 옥수수를 남긴다. 그 외에는, 아무것도 저절로 오지 않는다.</p>
+  </section>
+
+  <section class="seals" aria-label="봉인된 구획">
+
+    <article class="seal" id="seal-exchange" data-unlocked="false">
+      <div class="seal-face">
+        <div class="seal-rune">✦</div>
+        <h2 class="seal-title">봉인된 구획 · 一</h2>
+        <p class="seal-desc">무언가를 맞바꾸던 자리였다고 전해진다.</p>
+        <p class="seal-status">봉인됨</p>
+      </div>
+      <div class="seal-content">
+        <h2 class="panel-title">교환소</h2>
+        <p class="panel-flavor">안경 너머로 셈을 하는 자가 있었다. 그는 옥수수를 받고, 반짝이는 것을 내주었다.</p>
+        <div class="shop-grid" id="shopGrid"></div>
+      </div>
+    </article>
+
+    <article class="seal" id="seal-dungeon" data-unlocked="false">
+      <div class="seal-face">
+        <div class="seal-rune">✧</div>
+        <h2 class="seal-title">봉인된 구획 · 二</h2>
+        <p class="seal-desc">아래로 향하는 계단은 원래 없던 것이라 했다.</p>
+        <p class="seal-status">봉인됨</p>
+      </div>
+      <div class="seal-content">
+        <h2 class="panel-title">던전</h2>
+        <p class="panel-flavor">지하는 언제나 학교보다 넓다. 넓어서는 안 될 만큼.</p>
+        <button class="btn explore-btn" id="exploreBtn">탐험하기 (10 알갱이)</button>
+        <div class="dungeon-log" id="dungeonLog"></div>
+      </div>
+    </article>
+
+    <article class="seal" id="seal-ritual" data-unlocked="false">
+      <div class="seal-face">
+        <div class="seal-rune">⛧</div>
+        <h2 class="seal-title">봉인된 구획 · 三</h2>
+        <p class="seal-desc">염소는 아무 죄가 없다. 그저 마지막 식사였을 뿐.</p>
+        <p class="seal-status">봉인됨</p>
+      </div>
+      <div class="seal-content">
+        <h2 class="panel-title">영혼 협상</h2>
+        <p class="panel-flavor">계약은 언제나 정중하게 시작된다. 콧수염을 쓰다듬으며, 그는 웃었다.</p>
+        <button class="btn ritual-btn" id="ritualBtn">협상하기 (66 알갱이)</button>
+        <div class="ritual-log" id="ritualLog"></div>
+      </div>
+    </article>
+
+  </section>
+
+  <section class="codex" aria-label="파편 기록">
+    <h2 class="codex-title">파편 · <span id="codexCount">0</span>/<span id="codexTotal">0</span></h2>
+    <div class="codex-list" id="codexList"></div>
+  </section>
+
+  <!-- 장식용 모서리 문양들. 그저 장식일 뿐이다. -->
+  <div class="corner-glyph corner-tl" data-glyph="tl">𓆙</div>
+  <div class="corner-glyph corner-br" data-glyph="br">𓆚</div>
+
+</main>
+
+<footer class="site-foot">
+  <p>어떤 문은 손이 아니라 다른 것으로 두드려야 열린다.</p>
+  <p class="tiny">© 익명 · 기록 보존 협회</p>
+</footer>
+
+<div class="toast" id="toast"></div>
+
+<script src="game.js"></script>
+</body>
+</html>
