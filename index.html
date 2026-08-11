@@ -5,7 +5,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>◆ ??? ◆</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;900&family=Cormorant+Garamond:ital,wght@0,400;0,600;1,400&family=IM+Fell+English:ital@0;1&display=swap" rel="stylesheet">
 <link rel="stylesheet" href="style.css" />
 </head>
 <body>
@@ -32,50 +32,38 @@
     <p class="altar-caption">시간은 옥수수를 남긴다. 그 외에는, 아무것도 저절로 오지 않는다.</p>
   </section>
 
-  <section class="seals" aria-label="봉인된 구획">
+  <section class="whisper" aria-label="속삭임">
+    <span class="whisper-mark">〝</span>
+    <p class="whisper-text" id="whisperText">…</p>
+    <span class="whisper-mark">〞</span>
+  </section>
 
-    <article class="seal" id="seal-exchange" data-unlocked="false">
-      <div class="seal-face">
-        <div class="seal-rune">✦</div>
-        <h2 class="seal-title">봉인된 구획 · 一</h2>
-        <p class="seal-desc">무언가를 맞바꾸던 자리였다고 전해진다.</p>
-        <p class="seal-status">봉인됨</p>
-      </div>
-      <div class="seal-content">
-        <h2 class="panel-title">교환소</h2>
-        <p class="panel-flavor">안경 너머로 셈을 하는 자가 있었다. 그는 옥수수를 받고, 반짝이는 것을 내주었다.</p>
-        <div class="shop-grid" id="shopGrid"></div>
-      </div>
+  <section class="hub" aria-label="아홉 개의 문">
+    <h2 class="hub-title">아홉 개의 문</h2>
+    <p class="hub-caption">각 문은 서로 다른 방식으로 열린다. 같은 손짓은 통하지 않는다.</p>
+    <div class="gate-grid" id="gateGrid"></div>
+  </section>
+
+  <section class="reveals" id="revealSections">
+
+    <article class="reveal" id="reveal-exchange">
+      <h2 class="panel-title">교환소</h2>
+      <p class="panel-flavor">안경 너머로 셈을 하는 자가 있었다. 그는 옥수수를 받고, 반짝이는 것을 내주었다.</p>
+      <div class="shop-grid" id="shopGrid"></div>
     </article>
 
-    <article class="seal" id="seal-dungeon" data-unlocked="false">
-      <div class="seal-face">
-        <div class="seal-rune">✧</div>
-        <h2 class="seal-title">봉인된 구획 · 二</h2>
-        <p class="seal-desc">아래로 향하는 계단은 원래 없던 것이라 했다.</p>
-        <p class="seal-status">봉인됨</p>
-      </div>
-      <div class="seal-content">
-        <h2 class="panel-title">던전</h2>
-        <p class="panel-flavor">지하는 언제나 학교보다 넓다. 넓어서는 안 될 만큼.</p>
-        <button class="btn explore-btn" id="exploreBtn">탐험하기 (10 알갱이)</button>
-        <div class="dungeon-log" id="dungeonLog"></div>
-      </div>
+    <article class="reveal" id="reveal-dungeon">
+      <h2 class="panel-title">던전</h2>
+      <p class="panel-flavor">지하는 언제나 학교보다 넓다. 넓어서는 안 될 만큼.</p>
+      <button class="btn explore-btn" id="exploreBtn">탐험하기 (10 알갱이)</button>
+      <div class="dungeon-log" id="dungeonLog"></div>
     </article>
 
-    <article class="seal" id="seal-ritual" data-unlocked="false">
-      <div class="seal-face">
-        <div class="seal-rune">⛧</div>
-        <h2 class="seal-title">봉인된 구획 · 三</h2>
-        <p class="seal-desc">염소는 아무 죄가 없다. 그저 마지막 식사였을 뿐.</p>
-        <p class="seal-status">봉인됨</p>
-      </div>
-      <div class="seal-content">
-        <h2 class="panel-title">영혼 협상</h2>
-        <p class="panel-flavor">계약은 언제나 정중하게 시작된다. 콧수염을 쓰다듬으며, 그는 웃었다.</p>
-        <button class="btn ritual-btn" id="ritualBtn">협상하기 (66 알갱이)</button>
-        <div class="ritual-log" id="ritualLog"></div>
-      </div>
+    <article class="reveal" id="reveal-ritual">
+      <h2 class="panel-title">영혼 협상</h2>
+      <p class="panel-flavor">계약은 언제나 정중하게 시작된다. 콧수염을 쓰다듬으며, 그는 웃었다.</p>
+      <button class="btn ritual-btn" id="ritualBtn">협상하기 (66 알갱이)</button>
+      <div class="ritual-log" id="ritualLog"></div>
     </article>
 
   </section>
@@ -85,16 +73,19 @@
     <div class="codex-list" id="codexList"></div>
   </section>
 
-  <!-- 장식용 모서리 문양들. 그저 장식일 뿐이다. -->
-  <div class="corner-glyph corner-tl" data-glyph="tl">𓆙</div>
-  <div class="corner-glyph corner-br" data-glyph="br">𓆚</div>
-
 </main>
 
 <footer class="site-foot">
   <p>어떤 문은 손이 아니라 다른 것으로 두드려야 열린다.</p>
   <p class="tiny">© 익명 · 기록 보존 협회</p>
 </footer>
+
+<div class="modal-backdrop" id="modalBackdrop">
+  <div class="modal-box" id="modalBox" role="dialog" aria-modal="true">
+    <button class="modal-close" id="modalClose" aria-label="닫기">✕</button>
+    <div class="modal-content" id="modalContent"></div>
+  </div>
+</div>
 
 <div class="toast" id="toast"></div>
 
